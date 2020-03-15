@@ -1,0 +1,19 @@
+{
+  "name": "fnms-api",
+  "version": "0.1.0",
+  "description": "A blazing fast REST APIs with Node.js, MongoDB, Fastify and Swagger.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemon.js ./index.js"
+  },
+  "author": "Michael Restifo",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "fastify": "^2.12.1",
+    "fastify-swagger": "^2.5.0",
+    "mongoose": "^5.9.4",
+    "nodemon": "^2.0.2"
+  }
+}
