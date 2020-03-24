@@ -1,3 +1,7 @@
+// Read .env values
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Require the framework and instantiate it
 const fastify = require('fastify')({
     logger: true
@@ -21,7 +25,8 @@ routes.forEach((route, index) => {
 const mongoose = require('mongoose')
 
 // Set MongoDB URI
-const uri = 'mongodb://localhost/mycargarage';
+
+const uri = process.env.MONGODB_URI || 'mongodb://localhost/testdb';
 
 // Mongoose Connection Options
 const options = {
