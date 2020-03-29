@@ -15,7 +15,43 @@ const routes = [
   {
     method: 'GET',
     url: '/api/items/:id',
-    handler: itemController.getSingleItem
+    handler: itemController.getSingleItem,
+    schema:{
+      description: 'Get item data by id',
+      tags: ['Item'],
+      summary: 'qwerty',
+      params: {
+        type: 'object',
+        properties: {
+          id: {
+            type: 'string',
+            description: 'user id'
+          }
+        }
+      },
+      body: {
+        type: 'object',
+        properties: {
+          hello: { type: 'string' },
+          obj: {
+            type: 'object',
+            properties: {
+              some: { type: 'string' }
+            }
+          }
+        }
+      },
+      response: {
+        201: {
+          description: 'Succesful response',
+          type: 'object',
+          properties: {
+            hello: { type: 'string' }
+          }
+        }
+      }
+    
+    }
   },
   {
     method: 'POST',

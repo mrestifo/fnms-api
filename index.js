@@ -25,7 +25,6 @@ routes.forEach((route, index) => {
 const mongoose = require('mongoose')
 
 // Set MongoDB URI
-
 const uri = process.env.MONGODB_URI || 'mongodb://localhost/testdb';
 
 // Mongoose Connection Options
@@ -44,7 +43,10 @@ const options = {
 // Connect to DB
 mongoose.connect(uri, options)
     .then(() => console.log('MongoDB connected…'))
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err);
+        process.exit(1);
+    })
 
 // Run the server!
 const start = async () => {
