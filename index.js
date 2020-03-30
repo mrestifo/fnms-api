@@ -42,7 +42,9 @@ const options = {
 
 // Connect to DB
 mongoose.connect(uri, options)
-    .then(() => console.log('MongoDB connected…'))
+    .then(() => {
+        console.log('MongoDB connected…');        
+    })
     .catch(err => {
         console.log(err);
         process.exit(1);
@@ -62,4 +64,6 @@ const start = async () => {
         process.exit(1)
     }
 }
+
+//Start the Server
 start();

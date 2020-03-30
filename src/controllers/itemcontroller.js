@@ -2,7 +2,7 @@
 const boom = require('@hapi/boom')
 
 // Get Data Models
-const Item = require('../models/Item')
+const Item = require('../models/item/item')
 
 // Get all cars
 exports.getItems = async (req, reply) => {

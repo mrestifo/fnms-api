@@ -1,10 +1,10 @@
 
 // Import our Controllers
-const itemController = require('../controllers/itemController');
+const itemController = require('../controllers/itemcontroller');
 
 // Get Data Models
-const Item = require('../models/Item')
-const doc = require('../models/itemschema')
+const Item = require('../models/item/item')
+const doc = require('../models/item/itemschema')
 
 const routes = [
   {
