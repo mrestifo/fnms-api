@@ -1,6 +1,5 @@
 // Read .env values
-const dotenv = require('dotenv');
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 // Require the framework and instantiate it
 const fastify = require('fastify')({
@@ -23,22 +22,6 @@ routes.forEach((route, index) => {
 
 // Require external modules
 const mongoose = require('mongoose')
-
-// Set MongoDB URI
-const uri = process.env.MONGODB_URI || 'mongodb://localhost/testdb';
-
-// Mongoose Connection Options
-const options = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    autoIndex: false, // Don't build indexes
-    poolSize: 10, // Maintain up to 10 socket connections
-    serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
-    socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-    family: 4 // Use IPv4, skip trying IPv6
-};
 
 const connectdb = async () => {
 
@@ -77,10 +60,10 @@ const start = async () => {
         await connectdb();
 
         //Start fastify server
-        await fastify.listen(process.env.PORT || 3000);
+        await fastify.listen(process.env.PORT||3000, '0.0.0.0');
 
         //Initialize Swagger documentation
-        fastify.swagger();
+        await fastify.swagger();
 
         fastify.log.info(`server listening on ${fastify.server.address().port}`)
     } catch (err) {
