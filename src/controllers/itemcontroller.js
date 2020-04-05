@@ -25,6 +25,56 @@ exports.getSingleItem = async (req, reply) => {
   }
 }
 
+exports.getSingleItemSchema =
+{
+  description: 'Get item data by id',
+  tags: ['Item'],
+  summary: 'Retrieve all information for a specific item',
+  params: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string',
+        description: 'item id'
+      }
+    }
+  },
+  response: {
+    200: {
+      description: 'Succesful response',
+      type: 'object',
+      properties: {
+        title: {
+          type: 'string',
+          example: "Item 01"
+        },
+        age: {
+          type: 'string',
+          example: "21"
+        },
+        services: {
+          type: 'object',
+          additionalProperties: {
+            type: 'string',
+            properties: {
+              id: {
+                type: 'string'
+              },
+              key: {
+                type: 'string'
+              }
+            }
+          },
+          example: {
+            "Service1": "1/2/2020",
+            "Service2": "3/2/2020"
+          }
+        }
+      }
+    }
+  }
+}
+
 // Add a new car
 exports.addItem = async (req, reply) => {
   try {

@@ -40,20 +40,44 @@ const options = {
     family: 4 // Use IPv4, skip trying IPv6
 };
 
-// Connect to DB
-mongoose.connect(uri, options)
-    .then(() => {
-        console.log('MongoDB connected…');        
-    })
-    .catch(err => {
-        console.log(err);
-        process.exit(1);
-    })
+const connectdb = async () => {
+
+    // Set MongoDB URI
+    const uri = process.env.MONGODB_URI || 'mongodb://localhost/testdb';
+
+    // Mongoose Connection Options
+    const options = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        autoIndex: false, // Don't build indexes
+        poolSize: 10, // Maintain up to 10 socket connections
+        serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+        socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+        family: 4 // Use IPv4, skip trying IPv6
+    };
+
+    // Connect to DB
+    await mongoose.connect(uri, options)
+        .then(() => {
+            fastify.log.info('MongoDB connected…');
+        })
+        .catch(err => {
+            fastify.log.error(err);
+            process.exit(1);
+        })
+}
 
 // Run the server!
 const start = async () => {
     try {
-        await fastify.listen(3000);
+
+        //Connect to database
+        await connectdb();
+
+        //Start fastify server
+        await fastify.listen(process.env.PORT || 3000);
 
         //Initialize Swagger documentation
         fastify.swagger();
