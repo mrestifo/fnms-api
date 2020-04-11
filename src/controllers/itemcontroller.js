@@ -4,7 +4,7 @@ const boom = require('@hapi/boom')
 // Get Data Models
 const Item = require('../models/item/item')
 
-// Get all cars
+// Get all items
 exports.getItems = async (req, reply) => {
   try {
     const items = await Item.find()
@@ -14,7 +14,7 @@ exports.getItems = async (req, reply) => {
   }
 }
 
-// Get single car by ID
+// Get single item by ID
 exports.getSingleItem = async (req, reply) => {
   try {
     const id = req.params.id
@@ -25,6 +25,7 @@ exports.getSingleItem = async (req, reply) => {
   }
 }
 
+//Get single item by ID schema
 exports.getSingleItemSchema =
 {
   description: 'Get item data by id',
@@ -75,7 +76,7 @@ exports.getSingleItemSchema =
   }
 }
 
-// Add a new car
+// Add a new item
 exports.addItem = async (req, reply) => {
   try {
     const item = new Item(req.body)
@@ -85,7 +86,7 @@ exports.addItem = async (req, reply) => {
   }
 }
 
-// Update an existing car
+// Update an existing item
 exports.updateItem = async (req, reply) => {
   try {
     const id = req.params.id
@@ -98,7 +99,7 @@ exports.updateItem = async (req, reply) => {
   }
 }
 
-// Delete a car
+// Delete an item
 exports.deleteItem = async (req, reply) => {
   try {
     const id = req.params.id
