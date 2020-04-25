@@ -33,6 +33,8 @@ exports.getSingleItemSchema =
   summary: 'Retrieve all information for a specific item',
   params: {
     type: 'object',
+    path: 'in',
+    name: 'id',
     properties: {
       id: {
         type: 'string',
@@ -68,7 +70,8 @@ exports.getSingleItemSchema =
           },
           example: {
             "Service1": "1/2/2020",
-            "Service2": "3/2/2020"
+            "Service2": "3/2/2020",
+            "AdditionalItem": "Any String"
           }
         }
       }
