@@ -9,28 +9,28 @@ const doc = require('../models/item/itemschema')
 const routes = [
   {
     method: 'GET',
-    url: '/api/items',
+    url: '/v1/api/items',
     handler: itemController.getItems
   },
   {
     method: 'GET',
-    url: '/api/items/:id',
+    url: '/v1/api/items/:id',
     handler: itemController.getSingleItem,
     schema: itemController.getSingleItemSchema
   },
   {
     method: 'POST',
-    url: '/api/items',
+    url: '/v1/api/items',
     handler: itemController.addItem,
   },
   {
     method: 'PUT',
-    url: '/api/items/:id',
+    url: '/v1/api/items/:id',
     handler: itemController.updateItem
   },
   {
     method: 'DELETE',
-    url: '/api/items/:id',
+    url: '/v1/api/items/:id',
     handler: itemController.deleteItem
   }
 ]
