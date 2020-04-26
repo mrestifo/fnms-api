@@ -5,7 +5,7 @@ exports.options = {
       info: {
         title: 'Fastify, Node,js, MongoDB, Swagger API ',
         description: 'Building a blazing fast REST API with Node.js, MongoDB, Fastify and Swagger',
-        version: '0.0.2'
+        version: '0.0.3'
       },
       externalDocs: {
         url: 'https://swagger.io',
