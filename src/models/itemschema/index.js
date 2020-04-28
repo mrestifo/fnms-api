@@ -1,7 +1,10 @@
+
+//Define SubItem as needed
 const subitemSchema = {
   price: Number
 }
 
+//Define Item schema as needed
 const itemSchema = {
     title: String,
     age: Number,
