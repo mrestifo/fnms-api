@@ -3,8 +3,8 @@
 const itemController = require('../controllers/itemcontroller');
 
 // Get Data Models
-const Item = require('../models/item/item')
-const doc = require('../models/item/itemschema')
+const Item = require('../models/item')
+const doc = require('../models/itemschema')
 
 const routes = [
   {
