@@ -17,7 +17,7 @@
     "@hapi/boom": "^9.1.1",
     "dotenv": "^8.2.0",
     "fastify": "^2.15.1",
-    "fastify-swagger": "^2.5.0",
+    "fastify-swagger": "^4.3.2",
     "mongoose": "^5.11.7",
     "nodemon": "^2.0.2"
   }
