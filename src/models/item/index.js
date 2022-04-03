@@ -1,7 +1,8 @@
 // External Dependancies
 const mongoose = require('mongoose')
 
-const schema = require('./itemschema')
+//Define Item Schema
+const schema = require('../itemschema')
 
 const options = {
     timestamps: true
