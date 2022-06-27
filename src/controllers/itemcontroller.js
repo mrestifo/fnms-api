@@ -2,7 +2,7 @@
 const boom = require('@hapi/boom')
 
 // Get Data Models
-const Item = require('../models/item/item')
+const Item = require('../models/item')
 
 // Get all items
 exports.getItems = async (req, reply) => {
@@ -25,7 +25,9 @@ exports.getSingleItem = async (req, reply) => {
   }
 }
 
-//Get single item by ID schema
+//Get single item by ID - schema
+//Schema used for both validation and swagger.io doc
+
 exports.getSingleItemSchema =
 {
   description: 'Get item data by id',
