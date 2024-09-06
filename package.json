@@ -16,9 +16,9 @@
   "dependencies": {
     "@hapi/boom": "^9.1.4",
     "dotenv": "^16.0.0",
-    "fastify": "^3.27",
-    "fastify-swagger": "^5.1.0",
+    "fastify": "^4.24.1",
+    "fastify-swagger": "^5.2.0",
     "mongoose": "^8.0.0",
-    "nodemon": "^2.0.17"
+    "nodemon": "^3.0.0"
   }
 }
